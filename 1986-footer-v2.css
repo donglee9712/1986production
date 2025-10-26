@@ -1,3 +1,11 @@
+.site-footer {
+  background-color: var(--sm-blue);
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: var(--sm-padding-xl);
+  --footer-menu-item-width: 200px;
+}
 /*
 	Theme Name: SM Entertainment
 	Description: SM Entertainment official website theme for Wordpress. &copy; SM Entertainment. All rights reserved.
@@ -3921,4 +3929,10 @@ body[class*="--opened"] .site-header .hamburger .patty::after {
 }
 .sm-popup .popup-footer .button:hover {
   background-color: #eaeaea;
+}
+/*--- SITE FOOTER: 반응형 패딩 ---*/
+@media screen and (max-width: 768px) {
+  .site-footer {
+    padding: 20px 20px 20px 20px; /* 상 40px, 우 20px, 하 60px, 좌 20px */
+  }
 }
