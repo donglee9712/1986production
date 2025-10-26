@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>1986</title>
+   <link rel="stylesheet" href="1986푸터_v1.css">
+    <link rel="stylesheet" href="1986 푸터_v2.css">
+    <link rel="stylesheet" href="1986 푸터_v3.css">
+    <style>
+
+        body {
+            margin: 0;
+        }
+ 
+        footer.site-footer { 
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 70px; /* 상단 여백 기준으로 좌/우/하 동일 */
+            line-height: 1.6;
+            box-sizing: border-box; /* 패딩 포함하여 전체 너비 계산 */
+            background-color: #000000; /* 푸터 배경색 검정 */
+            color: #ffffff; /* 푸터 기본 글자색 흰색 */
+        }
+
+        /* 푸터 내부 텍스트 행간 */
+        footer.site-footer,
+        footer.site-footer a,
+        footer.site-footer span,
+        footer.site-footer .menu-label,
+        footer.site-footer .footer-menu .menu,
+        footer.site-footer .footer-menu .menu li,
+        footer.site-footer .footer-menu .sub-menu,
+        footer.site-footer .footer-menu .sub-menu li {
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        .logo-column, .menu-column {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .sm-ent-logo img {
+            width: 253px;
+            height: auto; /* 비율 유지 */
+            display: block;
+        }
+
+        .social-links a {
+            width: 40px;
+            aspect-ratio: 1 / 1; /* 높이 자동 비율 */
+            display: inline-block;
+            margin-right: 8.5px; /* 아이콘 간 간격 */
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* 마지막 아이콘 오른쪽 마진 제거 */
+        .social-links a:last-child {
+            margin-right: 0;
+        }
+
+        .instagram-button {
+            background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/284f92a850d2b.png') !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .댕댕페스티벌-instagram-button {
+            background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/f5aff5d1c64ef.png') !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .빵빵런-instagram-button {
+            background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/dd07906431e29.png') !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .라이프마라톤-instagram-button {
+            background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/8ce837c682ac5.png') !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .naver-blog-button {
+            background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/6dc02a3dfb82b.png') !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            opacity: 1;
+            transition: opacity 0.5s ease, transform 0.3s ease;
+        }
+
+        .instagram-button:hover,
+        .댕댕페스티벌-instagram-button:hover,
+        .빵빵런-instagram-button:hover,
+        .라이프마라톤-instagram-button:hover {
+            opacity: 1; /* 투명도 유지 */
+            transform: scale(1.05); /* 살짝 커짐 */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .naver-blog-button:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 서브 메뉴 행간 및 간격 조절 */
+        footer .footer-menu .sub-menu li {
+            line-height: 1.6; /* 기존 줄간격 유지 */
+            margin-top: 5px; /* 서브 메뉴 항목 간 위쪽 간격 추가 */
+        }
+
+        /* 첫 번째 항목 위쪽 마진 제거 */
+        footer .footer-menu .sub-menu li:first-child {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <footer class="site-footer">
+        <div class="logo-column">
+            <div class="sm-ent-logo">
+                <img src="https://cdn.imweb.me/upload/S20200402f6a4097001dd3/591217a32399c.png" alt="1986production Logo">
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/1986production/" class="instagram-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://www.instagram.com/dangdangfestival/" class="댕댕페스티벌-instagram-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://www.instagram.com/bbangbbangrun/" class="빵빵런-instagram-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://www.instagram.com/seoullifemarathon/" class="라이프마라톤-instagram-button" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://blog.naver.com/1986production" class="naver-blog-button" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+        </div>
+        <div class="menu-column">
+            <div class="footer-menu">
+                <ul id="menu-footer-menu" class="menu">
+                    <li class="menu-item menu-item-has-children">
+                        <a href="https://www.1986.co.kr/About">1986 ABOUT</a>
+                        <ul class="sub-menu">
+                            <li><a href="https://1986.imweb.me/252?preview_mode=1">회사 위치</a></li>
+                            <li><a href="https://1986.imweb.me/?preview_mode=1&modal_menu=m202312121200775a0ce8d">비즈니스 문의</a></li>
+                            <li><a href="mailto:1986@1986.co.kr">Send Email</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://www.1986.co.kr/Original">OUR WORK</a></li>
+                </ul>
+            </div>
+            <a href="https://www.1986.co.kr/236" class="privacy-link">APPLY</a>
+            <div class="copyright">
+                <span>ⓒ 2025 1986production. All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS 유지 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?ver=11.0.5"></script>
+    <script src="https://www.smentertainment.com/wp-content/themes/sm-entertainment/js/slick.min.js?ver=1.9.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js?ver=3.0.5"></script>
+    <script src="https://www.smentertainment.com/wp-content/themes/sm-entertainment/js/script.js?ver=1.2.4"></script>
+</body>
+</html>
