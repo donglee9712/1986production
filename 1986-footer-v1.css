@@ -269,9 +269,3 @@
 :where(.wp-block-calendar table:not(.has-background) th) {
   background: #ffffff;
 }
-
-@media screen and (max-width: 768px) {
-  footer.site-footer {
-    padding: 40px 20px 60px 20px; /* 상 40px, 우 20px, 하 60px, 좌 20px */
-  }
-}
