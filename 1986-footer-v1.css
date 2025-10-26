@@ -269,3 +269,10 @@
 :where(.wp-block-calendar table:not(.has-background) th) {
   background: #ffffff;
 }
+
+/* 반응형: 화면 너비 768px 이하일 때 site-footer 패딩 조정 */
+@media screen and (max-width: 768px) {
+  .site-footer {
+    padding: 20px 20px 20px 20px; /* 상 40px, 우 20px, 하 60px, 좌 20px */
+  }
+}
