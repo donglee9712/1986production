@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 메타 정보: 문자 인코딩과 뷰포트 설정 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 문서 제목 -->
+  <title>1986 소식</title>
+
+  <!-- Swiper CSS 스타일시트 링크 -->
+  <link rel="stylesheet" href="/1986 소식_v1.css" />
+
+  <style>
+    /** 
+     * body 스타일 설정
+     * 페이지 전체의 배경색, 기본 글꼴, 마진, 텍스트 색상 및 줄 높이를 지정
+     */
+    body {
+      background-color: #ffffff; /* 페이지 전체 흰색 */
+      font-family: 'Inter', sans-serif; /* 인터 폰트 사용 */
+      margin: 0; /* 기본 브라우저 마진 제거 */
+      color: #111; /* 기본 텍스트 색상 지정 */
+      line-height: 1.6; /* 텍스트 줄 간격 설정 */
+    }
+
+    /** 
+     * .home-news 컨테이너 스타일
+     * 최대 너비 제한, 중앙 정렬, 내부 여백, 가로 넘침 숨김, 배경색 및 테두리 반경 지정
+     */
+    .home-news {
+      max-width: 100%; /* 최대 너비 제한 */
+      margin: 0 auto; /* 가로 중앙 정렬 */
+      padding: 30px 70px 50px 70px; /* 상 30px, 우 70px, 하 50px, 좌 70px 패딩 */
+      overflow-x: hidden; /* 가로 스크롤 숨김 */
+      background-color: #f7f7f7; /* 연한 회색 배경 */
+      border-radius: 0; /* 테두리 반경 없음 */
+    }
+
+    /** 
+     * 섹션 헤더: 뉴스 제목과 내비게이션 버튼을 수평으로 배치
+     */
+    .section-header {
+      display: flex; /* 플렉스 박스 사용 */
+      justify-content: space-between; /* 양 끝 정렬 */
+      align-items: center; /* 수직 가운데 정렬 */
+      margin: 0; /* 기본 마진 제거 */
+      padding: 0; /* 기본 패딩 제거 */
+    }
+
+    /** 
+     * 뉴스 제목 링크 스타일
+     * 크기, 굵기, 색상, 밑줄 제거 설정
+     */
+    .section-header h1 a {
+      font-size: 40px; /* 큰 글꼴 크기 */
+      font-weight: 700; /* 굵은 글꼴 */
+      color: #ff7f00; /* 주황색 텍스트 */
+      text-decoration: none; /* 밑줄 제거 */
+    }
+
+    /** 
+     * 슬라이더 내비게이션 버튼 컨테이너 
+     * section-header 내부에서 버튼을 오른쪽에 배치
+     */
+    .swiper-nav {
+      display: flex;    /* 버튼 나란히 배치 */
+      gap: 10px;        /* 버튼 사이 간격 */
+      /* fixed, top, right, transform, z-index 제거 */
+    }
+
+    /** 
+     * 내비게이션 버튼 기본 스타일
+     * 크기, 배경 이미지 크기 및 위치, 테두리, 커서 등 설정
+     */
+    .nav-button {
+      width: 35px; /* 버튼 너비 */
+      height: 35px; /* 버튼 높이 */
+      background-size: 100% 100%; /* 배경 이미지 버튼 크기에 맞춤 */
+      background-repeat: no-repeat; /* 배경 이미지 반복 안함 */
+      background-position: center; /* 배경 이미지 중앙 정렬 */
+      border: none; /* 테두리 제거 */
+      border-radius: 0%; /* 모서리 둥글기 없음 */
+      cursor: pointer; /* 마우스 커서 포인터로 변경 */
+    }
+
+    /** 
+     * 이전 버튼 배경 이미지 설정
+     */
+    .nav-button--prev {
+      background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/24ba75811f808.png');
+    }
+
+    /** 
+     * 다음 버튼 배경 이미지 설정
+     */
+    .nav-button--next {
+      background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/dbcd35a466814.png');
+    }
+
+    /** 
+     * Swiper 슬라이더 기본 스타일
+     * 너비, 하단 패딩, 넘침 visible 설정
+     */
+    .swiper {
+      width: 100%; /* 가로 100% */
+      padding-bottom: 30px; /* 하단 공간 확보 */
+      overflow: visible; /* 넘침 visible로 설정하여 그림자 등 보이도록 */
+    }
+
+    /** 
+     * 각 슬라이드 스타일
+     * 배경색, 테두리 반경, 그림자, 오버플로우 및 전환 효과 설정
+     */
+    .swiper-slide {
+      background: #ffffff; /* 흰색 배경 */
+      border-radius: 24px; /* 둥근 모서리 */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* 연한 그림자 */
+      overflow: hidden; /* 내용 넘침 숨김 */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 변환 효과 */
+    }
+
+    /** 
+     * 슬라이드 호버 시 효과
+     * 위로 이동 및 그림자 강화
+     */
+    .swiper-slide:hover {
+      transform: translateY(-6px); /* 위로 6px 이동 */
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* 그림자 진하게 */
+    }
+
+    /** 
+     * 뉴스 아이템 링크 스타일
+     * 블록 레벨, 텍스트 장식 제거, 상속된 색상, 높이 100%로 설정
+     */
+    .news-item a {
+      display: block; /* 블록 요소로 변경 */
+      text-decoration: none; /* 밑줄 제거 */
+      color: inherit; /* 부모 색상 상속 */
+      height: 100%; /* 부모 높이 100% 차지 */
+    }
+
+    /** 
+     * 뉴스 아이템 내용 영역 패딩 및 테두리 반경 설정
+     */
+    .item-content {
+      padding: 20px 40px 20px 40px; /* 상 20px, 우 40px, 하 40px, 좌 40px */
+      border-radius: 24px 24px 0 0; /* 상단 둥근 모서리 */
+    }
+
+    /** 
+     * 뉴스 제목 스타일
+     * 글꼴 크기, 굵기, 여백, 색상 설정
+     */
+    .item-content h4 {
+      font-size: 20px; /* 제목 글꼴 크기 */
+      font-weight: 600; /* 제목 굵기 */
+      margin-bottom: 10px; /* 제목과 본문 사이 간격 */
+      color: #111; /* 진한 글자색 */
+    }
+
+    /** 
+     * 구분선 스타일
+     */
+    .item-divider {
+      border: 0;
+      height: 1px;
+      background-color: #e8e5e5;
+      margin: 0;
+      margin-bottom: 15px; /* space below divider */
+    }
+
+    /** 
+     * 뉴스 본문 스타일
+     * 글꼴 크기, 줄 높이, 색상, 마진 제거 설정
+     */
+    .item-content p {
+      font-size: 14px; /* 본문 글꼴 크기 */
+      line-height: 1.5; /* 줄 간격 */
+      color: #899094; /* 연한 회색 텍스트 */
+      margin: 0; /* 기본 마진 제거 */
+    }
+
+    /** 
+     * 뉴스 아이템 하단 영역 스타일
+     * 패딩, 플렉스 박스, 정렬 및 테두리 반경 설정
+     */
+    .item-footer {
+      padding: 0px 40px 45px 40px; /* 상 0, 우 40px, 하 45px, 좌 40px */
+      display: flex; /* 플렉스 박스 */
+      justify-content: space-between; /* 좌우 끝 정렬 */
+      align-items: center; /* 수직 가운데 정렬 */
+      border-radius: 0 0 24px 24px; /* 하단 둥근 모서리 */
+    }
+
+        /* 뉴스카드 내 임시 이미지(추가된 <img>)에 대한 여백 및 라운드 스타일 */
+    .item-content img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      
+    }
+
+
+    /** 
+     * 링크 버튼 스타일 수정
+     * 지정한 이미지로 배경, 네비게이션 버튼처럼 표시
+     */
+    .link-button {
+      width: 37px; /* 너비 */
+      height: 37px; /* 높이 */
+      background-size: 100% 100%; /* 버튼 크기에 맞게 이미지 100% 표시 */
+      background-repeat: no-repeat; /* 반복 없음 */
+      background-position: center; /* 중앙 정렬 */
+      border-radius: 100%; /* 원형 제거 */
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle box shadow */
+    }
+
+    /** 
+     * 날짜 텍스트 스타일
+     * 글꼴 크기 및 색상 설정
+     */
+    .date {
+      font-size: 12px; /* 작은 글꼴 크기 */
+      color: #899094; /* 연한 회색 텍스트 */
+    }
+
+    /** 
+     * 반응형 스타일
+     * 화면 너비가 768px 이하일 때 .home-news 패딩 조정
+     */
+    @media screen and (max-width: 768px) {
+      .home-news {
+        padding: 20px 20px 10px 20px; /* 상 20px, 우 20px, 하 10px, 좌 20px */
+      }
+    }
+</style>
+</head>
+
+<body>
+  <!-- 뉴스 섹션 전체 컨테이너 -->
+  <div class="home-news">
+    <!-- 섹션 헤더: 뉴스 제목과 슬라이더 내비게이션 버튼 -->
+    <div class="section-header">
+      <!-- 뉴스 제목 링크, 클릭 시 페이지 이동 방지 -->
+      <h1><a href="#" onclick="return false;">1986의 NEW 프로젝트</a></h1>
+      <!-- 슬라이더 내비게이션 버튼 컨테이너 -->
+      <div class="swiper-nav">
+        <!-- 이전 버튼: 클릭 시 이전 슬라이드로 이동 -->
+        <span class="nav-button nav-button--prev"></span>
+        <!-- 다음 버튼: 클릭 시 다음 슬라이드로 이동 -->
+        <span class="nav-button nav-button--next"></span>
+      </div>
+    </div>
+
+    <!-- Swiper 슬라이더 컨테이너 -->
+    <div class="swiper news-carousel">
+      <!-- 슬라이드 래퍼: 슬라이드들을 감싸는 요소 -->
+      <div class="swiper-wrapper">
+        <div class="swiper-slide news-item">
+          <a href="https://lululemonclubhouse.co.kr/?redirect=no">
+            <div class="item-content">
+              <h4>룰루레몬 클럽하우스</h4>
+              <hr class="item-divider" />
+              <p></p>
+              <img src="https://cdn.imweb.me/upload/S20200402f6a4097001dd3/d54a0ca38b479.png" style="max-width: 100%; height: auto; margin-top: 10px;" alt="뉴스 이미지 예시" />
+            </div>
+            <div class="item-footer">
+              <div class="link-button" style="background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/cf003ca9d685d.png');"></div>
+              <span class="date">예빛섬 | 2025.10.31(금) - 11.01(토)</span>
+            </div>
+          </a>
+        </div>
+         <div class="swiper-slide news-item">
+          <a href="https://lifemarathon.co.kr/">
+            <div class="item-content">
+              <h4>서울 라이프마라톤</h4>
+              <hr class="item-divider" />
+              <p></p>
+              <img src="https://cdn.imweb.me/upload/S20200402f6a4097001dd3/6bd53ef467192.png" style="max-width: 100%; height: auto; margin-top: 10px;" alt="뉴스 이미지 예시" />
+            </div>
+            <div class="item-footer">
+              <div class="link-button" style="background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/068f826b20d7e.png');"></div>
+              <span class="date">상암 평화의공원 | 2025.11.22(토)</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://www.millie.co.kr/">
+            <div class="item-content">
+              <h4>2025 밀리 어워즈</h4>
+              <hr class="item-divider" />
+              <p></p>
+              <img src="https://cdn.imweb.me/upload/S20200402f6a4097001dd3/397184834695b.png" style="max-width: 100%; height: auto; margin-top: 10px;" alt="뉴스 이미지 예시" />
+            </div>
+            <div class="item-footer">
+              <div class="link-button" style="background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/bfe957f8ded2d.png');"></div>
+              <span class="date">신라호텔 영빈관 | 2025. 12. 10 (수)</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS 라이브러리 로드 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    // 날짜 문자열에서 연, 월, 일을 파싱해서 Date 객체 반환
+    function parseDate(dateStr) {
+      const regex = /(\d{4})[^\d]*(\d{1,2})[^\d]*(\d{1,2})/;
+      const match = dateStr.match(regex);
+      if (!match) return new Date(0);
+      const year = parseInt(match[1], 10);
+      const month = parseInt(match[2], 10) - 1; // JS 월은 0부터 시작
+      const day = parseInt(match[3], 10);
+      return new Date(year, month, day);
+    }
+
+    // DOMContentLoaded 이벤트에서 정렬 (오늘 기준 가장 가까운 미래 이벤트 순)
+    document.addEventListener('DOMContentLoaded', function () {
+      const today = new Date(); // 오늘 날짜
+      const wrapper = document.querySelector('.swiper-wrapper');
+      const slides = Array.from(wrapper.querySelectorAll('.swiper-slide'));
+
+      // 미래 이벤트 기준으로 가장 가까운 날짜가 먼저 오도록 정렬
+      slides.sort((a, b) => {
+        const dateA = parseDate(a.querySelector('.date').textContent);
+        const dateB = parseDate(b.querySelector('.date').textContent);
+
+        // 오늘보다 과거는 뒤로, 미래는 가까운 순서로
+        const diffA = dateA - today;
+        const diffB = dateB - today;
+        return diffA - diffB;
+      });
+
+      slides.forEach(slide => wrapper.appendChild(slide));
+    });
+  </script>
+  <script>
+    /**
+     * Swiper 인스턴스 초기화
+     * 슬라이더 설정 및 내비게이션, 자동 재생, 반응형 설정 포함
+     */
+    const swiper = new Swiper('.swiper', {
+      loop: false, // 무한 루프 비활성화: 마지막 슬라이드에서 멈춤
+      slidesPerView: 1, // 기본적으로 한 슬라이드씩 표시
+      spaceBetween: 20, // 슬라이드 간 간격 20px
+      navigation: {
+        nextEl: '.nav-button--next', // 다음 버튼 셀렉터 지정
+        prevEl: '.nav-button--prev', // 이전 버튼 셀렉터 지정
+      },
+      autoplay: {
+        delay: 2500, // 2.5초마다 자동 슬라이드 전환
+        disableOnInteraction: false, // 사용자가 조작해도 자동 재생 유지
+        stopOnLastSlide: false // 마지막 슬라이드에서 멈추지 않고 계속 진행
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 }, // 화면 너비 768px 이상일 때 슬라이드 2개 표시
+        1024: { slidesPerView: 2 }, // 화면 너비 1024px 이상일 때 슬라이드 2개 표시
+        1800: { slidesPerView: 3 }  // 화면 너비 1800px 이상일 때 슬라이드 4개 표시
+      }
+    });
+  </script>
+</body>
+</html>
