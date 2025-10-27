@@ -8,7 +8,7 @@
   <title>1986 NEWS</title>
 
   <!-- Swiper CSS 스타일시트 링크 -->
-  <link rel="stylesheet" href="https://donglee9712.github.io/1986production/1986%20news_v1.css" />
+  <link rel="stylesheet" href="1986푸터_v1.css" />
 
   <style>
     /** 
@@ -108,15 +108,26 @@
     }
 
     /** 
+     * 슬라이드 래퍼 스타일: flex로 가로 정렬
+     */
+    .swiper-wrapper {
+      display: flex; /* 가로 정렬을 위한 flex 사용 */
+      flex-wrap: nowrap; /* 줄바꿈 없이 한 줄로 유지 */
+    }
+
+    /** 
      * 각 슬라이드 스타일
-     * 배경색, 테두리 반경, 그림자, 오버플로우 및 전환 효과 설정
+     * display를 inline-flex로 변경, flex-shrink: 0으로 축소 방지
      */
     .swiper-slide {
-      background: #ffffff; /* 흰색 배경 */
-      border-radius: 24px; /* 둥근 모서리 */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* 연한 그림자 */
-      overflow: hidden; /* 내용 넘침 숨김 */
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 변환 효과 */
+      display: inline-flex; /* 슬라이드 블록을 인라인 플렉스로 표시 */
+      flex-shrink: 0; /* 축소 방지 */
+      vertical-align: top;   /* 상단 기준으로 정렬 */
+      background: #ffffff;   /* 흰색 배경 유지 */
+      border-radius: 24px;   /* 둥근 모서리 유지 */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     /** 
@@ -425,7 +436,7 @@
   </div>
 
   <!-- Swiper JS 라이브러리 로드 -->
-  <script src="https://donglee9712.github.io/1986production/1986%20news.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
     /** 
      * DOMContentLoaded 이벤트: 문서가 완전히 로드된 후 실행
