@@ -700,7 +700,7 @@ swiper-container .swiper-notification {
 body {
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7; /* home-news 배경과 동일 */
+    background: none;
 }
 .home-news {
     padding: 0;
