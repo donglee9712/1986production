@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 메타 정보: 문자 인코딩과 뷰포트 설정 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 문서 제목 -->
+  <title>1986 NEWS</title>
+
+  <!-- Swiper CSS 스타일시트 링크 -->
+  <link rel="stylesheet" href="1986 news_v1.css" />
+
+  <style>
+    /** 
+     * body 스타일 설정
+     * 페이지 전체의 배경색, 기본 글꼴, 마진, 텍스트 색상 및 줄 높이를 지정
+     */
+    body {
+      background-color: #ffffff; /* 페이지 전체 흰색 */
+      font-family: 'Inter', sans-serif; /* 인터 폰트 사용 */
+      margin: 0; /* 기본 브라우저 마진 제거 */
+      color: #111; /* 기본 텍스트 색상 지정 */
+      line-height: 1.6; /* 텍스트 줄 간격 설정 */
+    }
+
+    /** 
+     * .home-news 컨테이너 스타일
+     * 최대 너비 제한, 중앙 정렬, 내부 여백, 가로 넘침 숨김, 배경색 및 테두리 반경 지정
+     */
+    .home-news {
+      max-width: 100%; /* 최대 너비 제한 */
+      margin: 0 auto; /* 가로 중앙 정렬 */
+      padding: 30px 70px 50px 70px; /* 상 30px, 우 70px, 하 50px, 좌 70px 패딩 */
+      overflow-x: hidden; /* 가로 스크롤 숨김 */
+      background-color: #f7f7f7; /* 연한 회색 배경 */
+      border-radius: 0; /* 테두리 반경 없음 */
+    }
+
+    /** 
+     * 섹션 헤더: 뉴스 제목과 내비게이션 버튼을 수평으로 배치
+     */
+    .section-header {
+      display: flex; /* 플렉스 박스 사용 */
+      justify-content: space-between; /* 양 끝 정렬 */
+      align-items: center; /* 수직 가운데 정렬 */
+      margin: 0; /* 기본 마진 제거 */
+      padding: 0; /* 기본 패딩 제거 */
+    }
+
+    /** 
+     * 뉴스 제목 링크 스타일
+     * 크기, 굵기, 색상, 밑줄 제거 설정
+     */
+    .section-header h1 a {
+      font-size: 40px; /* 큰 글꼴 크기 */
+      font-weight: 700; /* 굵은 글꼴 */
+      color: #ff7f00; /* 주황색 텍스트 */
+      text-decoration: none; /* 밑줄 제거 */
+    }
+
+    /** 
+     * 슬라이더 내비게이션 버튼 컨테이너 
+     * section-header 내부에서 버튼을 오른쪽에 배치
+     */
+    .swiper-nav {
+      display: flex;    /* 버튼 나란히 배치 */
+      gap: 10px;        /* 버튼 사이 간격 */
+      /* fixed, top, right, transform, z-index 제거 */
+    }
+
+    /** 
+     * 내비게이션 버튼 기본 스타일
+     * 크기, 배경 이미지 크기 및 위치, 테두리, 커서 등 설정
+     */
+    .nav-button {
+      width: 35px; /* 버튼 너비 */
+      height: 35px; /* 버튼 높이 */
+      background-size: 100% 100%; /* 배경 이미지 버튼 크기에 맞춤 */
+      background-repeat: no-repeat; /* 배경 이미지 반복 안함 */
+      background-position: center; /* 배경 이미지 중앙 정렬 */
+      border: none; /* 테두리 제거 */
+      border-radius: 0%; /* 모서리 둥글기 없음 */
+      cursor: pointer; /* 마우스 커서 포인터로 변경 */
+    }
+
+    /** 
+     * 이전 버튼 배경 이미지 설정
+     */
+    .nav-button--prev {
+      background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/24ba75811f808.png');
+    }
+
+    /** 
+     * 다음 버튼 배경 이미지 설정
+     */
+    .nav-button--next {
+      background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/dbcd35a466814.png');
+    }
+
+    /** 
+     * Swiper 슬라이더 기본 스타일
+     * 너비, 하단 패딩, 넘침 visible 설정
+     */
+    .swiper {
+      width: 100%; /* 가로 100% */
+      padding-bottom: 30px; /* 하단 공간 확보 */
+      overflow: visible; /* 넘침 visible로 설정하여 그림자 등 보이도록 */
+    }
+
+    /** 
+     * 각 슬라이드 스타일
+     * 배경색, 테두리 반경, 그림자, 오버플로우 및 전환 효과 설정
+     */
+    .swiper-slide {
+      background: #ffffff; /* 흰색 배경 */
+      border-radius: 24px; /* 둥근 모서리 */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* 연한 그림자 */
+      overflow: hidden; /* 내용 넘침 숨김 */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 변환 효과 */
+    }
+
+    /** 
+     * 슬라이드 호버 시 효과
+     * 위로 이동 및 그림자 강화
+     */
+    .swiper-slide:hover {
+      transform: translateY(-6px); /* 위로 6px 이동 */
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* 그림자 진하게 */
+    }
+
+    /** 
+     * 뉴스 아이템 링크 스타일
+     * 블록 레벨, 텍스트 장식 제거, 상속된 색상, 높이 100%로 설정
+     */
+    .news-item a {
+      display: block; /* 블록 요소로 변경 */
+      text-decoration: none; /* 밑줄 제거 */
+      color: inherit; /* 부모 색상 상속 */
+      height: 100%; /* 부모 높이 100% 차지 */
+    }
+
+    /** 
+     * 뉴스 아이템 내용 영역 패딩 및 테두리 반경 설정
+     */
+    .item-content {
+      padding: 20px 40px 40px 40px; /* 상 20px, 우 40px, 하 40px, 좌 40px */
+      border-radius: 24px 24px 0 0; /* 상단 둥근 모서리 */
+    }
+
+    /** 
+     * 뉴스 제목 스타일
+     * 글꼴 크기, 굵기, 여백, 색상 설정
+     */
+    .item-content h4 {
+      font-size: 20px; /* 제목 글꼴 크기 */
+      font-weight: 600; /* 제목 굵기 */
+      margin-bottom: 10px; /* 제목과 본문 사이 간격 */
+      color: #111; /* 진한 글자색 */
+    }
+
+    /** 
+     * 구분선 스타일
+     */
+    .item-divider {
+      border: 0;
+      height: 1px;
+      background-color: #e8e5e5;
+      margin: 10px 0;
+    }
+
+    /** 
+     * 뉴스 본문 스타일
+     * 글꼴 크기, 줄 높이, 색상, 마진 제거 설정
+     */
+    .item-content p {
+      font-size: 14px; /* 본문 글꼴 크기 */
+      line-height: 1.5; /* 줄 간격 */
+      color: #899094; /* 연한 회색 텍스트 */
+      margin: 0; /* 기본 마진 제거 */
+    }
+
+    /** 
+     * 뉴스 아이템 하단 영역 스타일
+     * 패딩, 플렉스 박스, 정렬 및 테두리 반경 설정
+     */
+    .item-footer {
+      padding: 0px 40px 45px 40px; /* 상 0, 우 40px, 하 45px, 좌 40px */
+      display: flex; /* 플렉스 박스 */
+      justify-content: space-between; /* 좌우 끝 정렬 */
+      align-items: center; /* 수직 가운데 정렬 */
+      border-radius: 0 0 24px 24px; /* 하단 둥근 모서리 */
+    }
+
+    /**
+     * 링크 버튼 스타일: data-btn 속성으로 배경 이미지 지정
+     * 중복 스타일 제거 및 속성 기반 이미지 분기
+     */
+    .link-button {
+      width: 37px;
+      height: 37px;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 100%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      display: inline-block;
+    }
+    /* 각 버튼 타입별 배경 이미지: data-btn 속성 사용 */
+    .link-button[data-btn="orange"] {
+      background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/89172e5abd65a.png');
+    }
+    .link-button[data-btn="blue"] {
+      background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/4be7a2e5a238f.png');
+    }
+    .link-button[data-btn="green"] {
+      background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/9b93594a99d65.png');
+    }
+
+    /** 
+     * 날짜 텍스트 스타일
+     * 글꼴 크기 및 색상 설정
+     */
+    .date {
+      font-size: 12px; /* 작은 글꼴 크기 */
+      color: #899094; /* 연한 회색 텍스트 */
+    }
+
+    /**
+     * 반응형 스타일
+     * 화면 너비가 768px 이하일 때 .home-news 및 .link-button 패딩 조정
+     */
+    @media screen and (max-width: 768px) {
+      .home-news {
+        padding: 20px 20px 10px 20px;
+      }
+      .link-button {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 뉴스 섹션 전체 컨테이너 -->
+  <div class="home-news">
+    <!-- 섹션 헤더: 뉴스 제목과 슬라이더 내비게이션 버튼 -->
+    <div class="section-header">
+      <!-- 뉴스 제목 링크, 클릭 시 페이지 이동 방지 -->
+      <h1><a href="#" onclick="return false;">NEWS</a></h1>
+      <!-- 슬라이더 내비게이션 버튼 컨테이너 -->
+      <div class="swiper-nav">
+        <!-- 이전 버튼: 클릭 시 이전 슬라이드로 이동 -->
+        <span class="nav-button nav-button--prev"></span>
+        <!-- 다음 버튼: 클릭 시 다음 슬라이드로 이동 -->
+        <span class="nav-button nav-button--next"></span>
+      </div>
+    </div>
+
+    <!-- Swiper 슬라이더 컨테이너 -->
+    <div class="swiper news-carousel">
+      <!-- 슬라이드 래퍼: 슬라이드들을 감싸는 요소 -->
+      <div class="swiper-wrapper">
+        <!-- Swiper 슬라이드 각각은 뉴스 아이템 -->
+        <!-- 각 뉴스 아이템의 링크 버튼에 data-btn 속성 지정 (orange, blue, green) -->
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/185?preview_mode=1">
+            <div class="item-content">
+              <h4>재미에 가치를 더하는 우리 반려동물 축제</h4>
+              <hr class="item-divider" />
+              <p>기획자가 이야기하는 반려문화와 댕댕이프로젝트</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="orange"></div>
+              <span class="date">2023. 11. 12</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/160">
+            <div class="item-content">
+              <h4>댕댕런…반려견 마라톤을 만든 男子</h4>
+              <hr class="item-divider" />
+              <p>평범했던 생명공학도 대학생…</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="orange"></div>
+              <span class="date">2023. 11. 01</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/161?preview_mode=1">
+            <div class="item-content">
+              <h4>빵 좋아하는 사람들의 마라톤 ‘빵빵런2023’</h4>
+              <hr class="item-divider" />
+              <p>빵 좋아하는 사람들의 깨알재미 소확행...</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="blue"></div>
+              <span class="date">2023. 02. 20</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/223?preview_mode=1">
+            <div class="item-content">
+              <h4>롱블랙 인터뷰 : 윤명호 대표</h4>
+              <hr class="item-divider" />
+              <p>빵 찾아 달리고, 강아지와 산 타고, 요즘 축제 기획법</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="green"></div>
+              <span class="date">2024. 11. 14</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/162?preview_mode=1">
+            <div class="item-content">
+              <h4>강형욱과 함께 트레킹 '댕댕트레킹 2023'</h4>
+              <hr class="item-divider" />
+              <p>'개통령'과 함께 하는 숲속 트레킹...</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="orange"></div>
+              <span class="date">2023. 03. 15</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/163?preview_mode=1">
+            <div class="item-content">
+              <h4>빵둥이들의 마라톤 ’빵빵런2022’ 개최</h4>
+              <hr class="item-divider" />
+              <p>살찌는 것은 싫지만 빵은 먹고 싶은 빵둥이들의...</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="blue"></div>
+              <span class="date">2022. 02. 25</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/186?preview_mode=1">
+            <div class="item-content">
+              <h4>삶은 재미다, 1986프로덕션</h4>
+              <hr class="item-divider" />
+              <p>1986프로덕션의 프로젝트에 대해..</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="green"></div>
+              <span class="date">2023. 09. 20</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/214">
+            <div class="item-content">
+              <h4>빵빵런의 맛있는 나눔, 진행중!</h4>
+              <hr class="item-divider" />
+              <p>사단법인 프렌즈 소식지에 실린 빵빵런 기부 캠페인</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="blue"></div>
+              <span class="date">2024. 07. 31</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/184?preview_mode=1">
+            <div class="item-content">
+              <h4>댕댕런 2021, 댕댕이와 달리고 사료 5톤 기부</h4>
+              <hr class="item-divider" />
+              <p>버추얼레이스로 진행되어 기부캠페인 함께 진행...</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="orange"></div>
+              <span class="date">2021. 05. 17</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/198?preview_mode=1">
+            <div class="item-content">
+              <h4>'빵빵런2024', 이색 복장으로 마라톤 뛰어</h4>
+              <hr class="item-divider" />
+              <p>올해로 4회를 맞이하는 '빵빵런'이 14일...</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="blue"></div>
+              <span class="date">2024. 04. 14</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/213?preview_mode=1">
+            <div class="item-content">
+              <h4>빵빵런 in 대전, 빵의 도시 대전에서 첫 개최</h4>
+              <hr class="item-divider" />
+              <p>2024년 9월 8일(일) 대전 엑스포시민광장에서 진행 </p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="blue"></div>
+              <span class="date">2024. 06. 27</span>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide news-item">
+          <a href="https://1986.imweb.me/160?preview_mode=1">
+            <div class="item-content">
+              <h4>댕댕런 2023, 자라섬에서 즐겁게 마무리</h4>
+              <hr class="item-divider" />
+              <p>산업 발전과 동물복지의 조화 모색</p>
+            </div>
+            <div class="item-footer">
+              <div class="link-button" data-btn="orange"></div>
+              <span class="date">2023. 11. 01</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS 라이브러리 로드 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    /** 
+     * DOMContentLoaded 이벤트: 문서가 완전히 로드된 후 실행
+     * - 뉴스 카드 날짜 기준 내림차순 정렬 (최신순)
+     * - Swiper 인스턴스 초기화
+     */
+    document.addEventListener('DOMContentLoaded', function () {
+      // 1. 뉴스카드 날짜 기준 내림차순 정렬 (최신순)
+      const wrapper = document.querySelector('.swiper-wrapper'); // 슬라이드 래퍼 선택
+      const slides = Array.from(wrapper.querySelectorAll('.swiper-slide')); // 모든 슬라이드 배열로 변환
+      slides.sort((a, b) => {
+        // 날짜 포맷 "YYYY. MM. DD" -> "YYYY-MM-DD"로 변환 후 Date 객체 생성
+        const dateA = new Date(a.querySelector('.date').textContent.trim().replace(/\./g, '-'));
+        const dateB = new Date(b.querySelector('.date').textContent.trim().replace(/\./g, '-'));
+        return dateB - dateA; // 최신 날짜가 앞으로 오도록 내림차순 정렬
+      });
+      slides.forEach(slide => wrapper.appendChild(slide)); // 정렬된 순서대로 DOM에 재배치
+
+      // 2. Swiper 인스턴스 초기화 (정렬 후)
+      const swiper = new Swiper('.swiper', {
+        loop: false, // 무한 루프 비활성화
+        slidesPerView: 1, // 기본 한 슬라이드씩 보여줌
+        spaceBetween: 20, // 슬라이드 간 간격 20px
+        navigation: {
+          nextEl: '.nav-button--next', // 다음 버튼 엘리먼트
+          prevEl: '.nav-button--prev', // 이전 버튼 엘리먼트
+        },
+        autoplay: {
+          delay: 2500, // 2.5초마다 자동 슬라이드
+          disableOnInteraction: false, // 사용자 조작 후에도 자동 재생 유지
+          stopOnLastSlide: false // 마지막 슬라이드에서 멈추지 않음
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 }, // 768px 이상일 때 2개 슬라이드 표시
+          1024: { slidesPerView: 2 }, // 1024px 이상일 때 2개 슬라이드 표시
+          1800: { slidesPerView: 4 } // 1800px 이상일 때 4개 슬라이드 표시
+        }
+      });
+    });
+  </script>
+</body>
+</html>
