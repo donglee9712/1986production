@@ -697,3 +697,16 @@ swiper-container .swiper-notification {
   backface-visibility: hidden;
   overflow: hidden;
 }
+.news-item a {
+  color: #111; /* 진한 글자색으로 핑크색 방지 */
+  text-decoration: none;
+}
+
+.link-button {
+  background-color: transparent; /* 이미지 실패 시 핑크색 방지 */
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #000; /* 검정색으로 강제 지정 */
+}
