@@ -697,6 +697,15 @@ swiper-container .swiper-notification {
   backface-visibility: hidden;
   overflow: hidden;
 }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7; /* home-news 배경과 동일 */
+}
+.home-news {
+    padding: 0;
+    margin: 0 auto;
+}
 .news-item a {
   color: #111;
   text-decoration: none;
