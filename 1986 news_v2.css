@@ -1,172 +1,96 @@
-/* ==========================================================================
-   1986 NEWS - 정리된 CSS
-   ==========================================================================
-*/
+<style>
+    body {
+        margin: 0;
+    }
 
-/* 기본 body 설정 */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
-  color: #111;
-  line-height: 1.6;
-}
+    footer.site-footer { 
+        width: 100%;
+        margin: 0;
+        padding: 70px;
+        line-height: 1.6;
+        box-sizing: border-box;
+        background-color: #000;
+        color: #fff;
+    }
 
-/* 뉴스 섹션 컨테이너 */
-.home-news {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 30px 70px 50px 70px;
-  overflow-x: hidden;
-  background-color: #f7f7f7;
-  border-radius: 0;
-}
+    footer.site-footer,
+    footer.site-footer a,
+    footer.site-footer span,
+    footer.site-footer .footer-menu .menu,
+    footer.site-footer .footer-menu .menu li,
+    footer.site-footer .footer-menu .sub-menu,
+    footer.site-footer .footer-menu .sub-menu li {
+        line-height: 1.6;
+        color: #fff;
+    }
 
-/* 섹션 헤더 */
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
+    .logo-column, .menu-column {
+        display: inline-block;
+        vertical-align: top;
+    }
 
-.section-header h1 a {
-  font-size: 40px;
-  font-weight: 700;
-  color: #ff7f00;
-  text-decoration: none;
-}
+    .sm-ent-logo img {
+        width: 253px;
+        height: auto;
+        display: block;
+    }
 
-/* Swiper 네비게이션 */
-.swiper-nav {
-  display: flex;
-  gap: 10px;
-}
+    .social-links a {
+        display: inline-block;
+        width: 40px;
+        height: auto;
+        margin-right: 8.5px;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        opacity: 1;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
-.nav-button {
-  width: 35px;
-  height: 35px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-}
+    .social-links a:last-child {
+        margin-right: 0;
+    }
 
-.nav-button--prev {
-  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/24ba75811f808.png');
-}
-.nav-button--next {
-  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/dbcd35a466814.png');
-}
+    .instagram-button {
+        background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/284f92a850d2b.png') !important;
+    }
+    .댕댕페스티벌-instagram-button {
+        background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/f5aff5d1c64ef.png') !important;
+    }
+    .빵빵런-instagram-button {
+        background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/dd07906431e29.png') !important;
+    }
+    .라이프마라톤-instagram-button {
+        background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/8ce837c682ac5.png') !important;
+    }
+    .naver-blog-button {
+        background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/6dc02a3dfb82b.png') !important;
+    }
 
-/* Swiper 슬라이드 설정 */
-.swiper {
-  width: 100%;
-  padding-bottom: 30px;
-  overflow: visible;
-}
+    .social-links a:hover {
+        transform: scale(1.05);
+    }
 
-.swiper-wrapper {
-  display: flex;
-}
+    footer a:hover {
+        text-decoration: underline;
+    }
 
-.swiper-slide {
-  display: inline-block; /* 가로 정렬 */
-  vertical-align: top;
-  width: auto;
-  background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    footer .footer-menu .sub-menu li {
+        line-height: 1.6;
+        margin-top: 5px;
+    }
 
-.swiper-slide:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
+    footer .footer-menu .sub-menu li:first-child {
+        margin-top: 0;
+    }
 
-/* 뉴스 아이템 */
-.news-item a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-}
-
-.item-content {
-  padding: 20px 40px 40px 40px;
-  border-radius: 24px 24px 0 0;
-}
-
-.item-content h4 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #111;
-}
-
-.item-divider {
-  border: 0;
-  height: 1px;
-  background-color: #e8e5e5;
-  margin: 10px 0;
-}
-
-.item-content p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #899094;
-  margin: 0;
-}
-
-.item-footer {
-  padding: 0px 40px 45px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0 0 24px 24px;
-}
-
-/* 링크 버튼 */
-.link-button {
-  width: 37px;
-  height: 37px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 100%;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  display: inline-block;
-}
-
-.link-button[data-btn="orange"] {
-  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/89172e5abd65a.png');
-}
-.link-button[data-btn="blue"] {
-  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/4be7a2e5a238f.png');
-}
-.link-button[data-btn="green"] {
-  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/9b93594a99d65.png');
-}
-
-/* 날짜 */
-.date {
-  font-size: 12px;
-  color: #899094;
-}
-
-/* 반응형 */
-@media screen and (max-width: 768px) {
-  .home-news {
-    padding: 20px 20px 10px 20px;
-  }
-  .link-button {
-    width: 32px;
-    height: 32px;
-  }
-}
+    @media screen and (max-width: 768px) {
+        footer.site-footer {
+            padding: 40px 20px;
+        }
+        .sm-ent-logo img {
+            width: 185px;
+            height: auto;
+        }
+    }
+</style>
