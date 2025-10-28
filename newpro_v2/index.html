@@ -1,35 +1,199 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- 메타 정보: 문자 인코딩과 뷰포트 설정 -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- 문서 제목 -->
   <title>1986 소식</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <style>
+/* ==========================================================================
+   Custom Site Styles
+   ========================================================================== */
 
-  <!-- Swiper CSS 스타일시트 링크 -->
-  <link rel="stylesheet" href="https://donglee9712.github.io/1986production/newpro_v2/1986%20%EC%86%8C%EC%8B%9D_v1.css" />
+body {
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  color: #111;
+  line-height: 1.6;
+  padding: 0;
+  background: none;
+}
+
+.home-news {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 30px 70px 50px 70px;
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+  border-radius: 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.section-header h1 a {
+  font-size: 40px;
+  font-weight: 700;
+  color: #ff7f00;
+  text-decoration: none;
+}
+
+.swiper-nav {
+  gap: 10px;
+  display: flex;
+}
+
+.nav-button {
+  width: 35px;
+  height: 35px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 0%;
+  cursor: pointer;
+}
+
+.nav-button--prev {
+  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/24ba75811f808.png');
+}
+
+.nav-button--next {
+  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/dbcd35a466814.png');
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 30px;
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.news-carousel {
+  display: block;
+}
+
+.swiper-slide {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-content,
+.news-item a[href="https://www.millie.co.kr/"] {
+  display: block;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.news-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.item-content {
+  padding: 20px 40px 20px 40px;
+  border-radius: 24px 24px 0 0;
+}
+
+.item-content h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.item-divider {
+  border: 0;
+  height: 1px;
+  background-color: #e8e5e5;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.item-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #899094;
+  margin: 0;
+}
+
+.item-footer {
+  padding: 0px 40px 45px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 24px 24px;
+}
+
+.item-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.link-button {
+  width: 37px;
+  height: 37px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+}
+
+.date {
+  font-size: 12px;
+  color: #899094;
+}
+
+@media screen and (max-width: 768px) {
+  .home-news {
+    padding: 20px 20px 10px 20px;
+  }
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #000;
+}
+  </style>
 </head>
 
 <body>
-  <!-- 뉴스 섹션 전체 컨테이너 -->
   <div class="home-news">
-    <!-- 섹션 헤더: 뉴스 제목과 슬라이더 내비게이션 버튼 -->
     <div class="section-header">
-      <!-- 뉴스 제목 링크, 클릭 시 페이지 이동 방지 -->
       <h1><a href="#" onclick="return false;">NEW 프로젝트</a></h1>
-      <!-- 슬라이더 내비게이션 버튼 컨테이너 -->
       <div class="swiper-nav">
-        <!-- 이전 버튼: 클릭 시 이전 슬라이드로 이동 -->
         <span class="nav-button nav-button--prev"></span>
-        <!-- 다음 버튼: 클릭 시 다음 슬라이드로 이동 -->
         <span class="nav-button nav-button--next"></span>
       </div>
     </div>
 
-    <!-- Swiper 슬라이더 컨테이너 -->
     <div class="swiper news-carousel">
-      <!-- 슬라이드 래퍼: 슬라이드들을 감싸는 요소 -->
       <div class="swiper-wrapper">
         <div class="swiper-slide news-item">
           <a href="https://lululemonclubhouse.co.kr/?redirect=no">
@@ -45,7 +209,7 @@
             </div>
           </a>
         </div>
-         <div class="swiper-slide news-item">
+        <div class="swiper-slide news-item">
           <a href="https://lifemarathon.co.kr/">
             <div class="item-content">
               <h4>서울 라이프마라톤</h4>
@@ -77,23 +241,22 @@
     </div>
   </div>
 
-  <!-- Swiper JS 라이브러리 로드 -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
-    // 날짜 문자열에서 연, 월, 일을 파싱해서 Date 객체 반환
+    // 날짜 파싱 함수
     function parseDate(dateStr) {
       const regex = /(\d{4})[^\d]*(\d{1,2})[^\d]*(\d{1,2})/;
       const match = dateStr.match(regex);
       if (!match) return new Date(0);
       const year = parseInt(match[1], 10);
-      const month = parseInt(match[2], 10) - 1; // JS 월은 0부터 시작
+      const month = parseInt(match[2], 10) - 1;
       const day = parseInt(match[3], 10);
       return new Date(year, month, day);
     }
 
-    // DOMContentLoaded 이벤트에서 정렬 (오늘 기준 가장 가까운 미래 이벤트 순)
+    // 정렬 후 Swiper 초기화를 순차적으로 실행
     document.addEventListener('DOMContentLoaded', function () {
-      const today = new Date(); // 오늘 날짜
+      const today = new Date();
       const wrapper = document.querySelector('.swiper-wrapper');
       const slides = Array.from(wrapper.querySelectorAll('.swiper-slide'));
 
@@ -101,39 +264,34 @@
       slides.sort((a, b) => {
         const dateA = parseDate(a.querySelector('.date').textContent);
         const dateB = parseDate(b.querySelector('.date').textContent);
-
-        // 오늘보다 과거는 뒤로, 미래는 가까운 순서로
         const diffA = dateA - today;
         const diffB = dateB - today;
         return diffA - diffB;
       });
 
+      // 정렬된 슬라이드를 다시 추가
       slides.forEach(slide => wrapper.appendChild(slide));
-    });
-  </script>
-  <script>
-    /**
-     * Swiper 인스턴스 초기화
-     * 슬라이더 설정 및 내비게이션, 자동 재생, 반응형 설정 포함
-     */
-    const swiper = new Swiper('.swiper', {
-      loop: false, // 무한 루프 비활성화: 마지막 슬라이드에서 멈춤
-      slidesPerView: 1, // 기본적으로 한 슬라이드씩 표시
-      spaceBetween: 20, // 슬라이드 간 간격 20px
-      navigation: {
-        nextEl: '.nav-button--next', // 다음 버튼 셀렉터 지정
-        prevEl: '.nav-button--prev', // 이전 버튼 셀렉터 지정
-      },
-      autoplay: {
-        delay: 2500, // 2.5초마다 자동 슬라이드 전환
-        disableOnInteraction: false, // 사용자가 조작해도 자동 재생 유지
-        stopOnLastSlide: false // 마지막 슬라이드에서 멈추지 않고 계속 진행
-      },
-      breakpoints: {
-        768: { slidesPerView: 2 }, // 화면 너비 768px 이상일 때 슬라이드 2개 표시
-        1024: { slidesPerView: 2 }, // 화면 너비 1024px 이상일 때 슬라이드 2개 표시
-        1800: { slidesPerView: 3 }  // 화면 너비 1800px 이상일 때 슬라이드 4개 표시
-      }
+
+      // 정렬이 완료된 후 Swiper 초기화
+      const swiper = new Swiper('.swiper', {
+        loop: false,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: '.nav-button--next',
+          prevEl: '.nav-button--prev',
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 2 },
+          1800: { slidesPerView: 3 }
+        }
+      });
     });
   </script>
 </body>
