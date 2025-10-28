@@ -703,7 +703,7 @@ body {
     background: none;
 }
 .home-news {
-    padding: 0;
+    padding: 30px 70px 50px 70px;
     margin: 0 auto;
 }
 .news-item a {
