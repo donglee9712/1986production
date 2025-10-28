@@ -1,0 +1,174 @@
+/* ==========================================================================
+   1986 NEWS - 커스텀 스타일
+   ========================================================================== */
+
+/* Body 기본 설정 */
+body {
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #111;
+  line-height: 1.6;
+}
+
+/* 뉴스 섹션 컨테이너 */
+.home-news {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 30px 70px 50px 70px;
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+}
+
+/* 섹션 헤더 */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.section-header h1 a {
+  font-size: 40px;
+  font-weight: 700;
+  color: #ff7f00;
+  text-decoration: none;
+}
+
+/* 네비게이션 버튼 컨테이너 */
+.swiper-nav {
+  display: flex;
+  gap: 10px;
+}
+
+/* 네비게이션 버튼 */
+.nav-button {
+  width: 35px;
+  height: 35px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-button--prev {
+  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/24ba75811f808.png');
+}
+
+.nav-button--next {
+  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/dbcd35a466814.png');
+}
+
+/* Swiper 슬라이더 */
+.swiper {
+  width: 100%;
+  padding-bottom: 30px;
+  overflow: visible;
+}
+
+/* 슬라이드 카드 */
+.swiper-slide {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 뉴스 아이템 링크 */
+.news-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+/* 카드 내용 영역 */
+.item-content {
+  padding: 20px 40px 40px 40px;
+  border-radius: 24px 24px 0 0;
+}
+
+.item-content h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.item-divider {
+  border: 0;
+  height: 1px;
+  background-color: #e8e5e5;
+  margin: 10px 0;
+}
+
+.item-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #899094;
+  margin: 0;
+}
+
+/* 카드 하단 영역 */
+.item-footer {
+  padding: 0px 40px 45px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 24px 24px;
+}
+
+/* 링크 버튼 */
+.link-button {
+  width: 37px;
+  height: 37px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border-radius: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* 날짜 텍스트 */
+.date {
+  font-size: 12px;
+  color: #899094;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+  .home-news {
+    padding: 20px 20px 10px 20px;
+  }
+  
+  .section-header h1 a {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .item-content {
+    padding: 15px 25px 30px 25px;
+  }
+  
+  .item-footer {
+    padding: 0px 25px 30px 25px;
+  }
+}
