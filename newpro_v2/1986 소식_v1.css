@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Custom Site Styles - HTML에서 이동한 스타일
+   ========================================================================== */
+
+/** 
+ * body 스타일 설정
+ * 페이지 전체의 배경색, 기본 글꼴, 마진, 텍스트 색상 및 줄 높이를 지정
+ */
+body {
+  background-color: #ffffff; /* 페이지 전체 흰색 */
+  font-family: 'Inter', sans-serif; /* 인터 폰트 사용 */
+  margin: 0; /* 기본 브라우저 마진 제거 */
+  color: #111; /* 기본 텍스트 색상 지정 */
+  line-height: 1.6; /* 텍스트 줄 간격 설정 */
+  padding: 0;
+  background: none;
+}
+
+/** 
+ * .home-news 컨테이너 스타일 - 레이아웃 관련 속성 그룹화
+ * 최대 너비 제한, 중앙 정렬, 내부 여백, 가로 넘침 숨김, 배경색 및 테두리 반경 지정
+ */
+.home-news {
+  max-width: 100%; /* 최대 너비 제한 */
+  margin: 0 auto; /* 가로 중앙 정렬 */
+  padding: 30px 70px 50px 70px; /* 상 30px, 우 70px, 하 50px, 좌 70px 패딩 */
+  overflow-x: hidden; /* 가로 스크롤 숨김 */
+  background-color: #f7f7f7; /* 연한 회색 배경 */
+  border-radius: 0; /* 테두리 반경 없음 */
+}
+
+/** 
+ * 섹션 헤더: 뉴스 제목과 내비게이션 버튼을 수평으로 배치
+ */
+.section-header {
+  display: flex; /* 플렉스 박스 사용 */
+  justify-content: space-between; /* 양 끝 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  margin: 0; /* 기본 마진 제거 */
+  padding: 0; /* 기본 패딩 제거 */
+}
+
+/** 
+ * 뉴스 제목 링크 스타일
+ * 크기, 굵기, 색상, 밑줄 제거 설정
+ */
+.section-header h1 a {
+  font-size: 40px; /* 큰 글꼴 크기 */
+  font-weight: 700; /* 굵은 글꼴 */
+  color: #ff7f00; /* 주황색 텍스트 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+/** 
+ * 슬라이더 내비게이션 버튼 컨테이너 
+ * section-header 내부에서 버튼을 오른쪽에 배치
+ */
+.swiper-nav {
+  gap: 10px;        /* 버튼 사이 간격 */
+  display: flex;    /* 버튼 나란히 배치 */
+}
+
+/** 
+ * 내비게이션 버튼 기본 스타일
+ * 크기, 배경 이미지 크기 및 위치, 테두리, 커서 등 설정
+ */
+.nav-button {
+  width: 35px; /* 버튼 너비 */
+  height: 35px; /* 버튼 높이 */
+  background-size: 100% 100%; /* 배경 이미지 버튼 크기에 맞춤 */
+  background-repeat: no-repeat; /* 배경 이미지 반복 안함 */
+  background-position: center; /* 배경 이미지 중앙 정렬 */
+  border: none; /* 테두리 제거 */
+  border-radius: 0%; /* 모서리 둥글기 없음 */
+  cursor: pointer; /* 마우스 커서 포인터로 변경 */
+}
+
+/** 
+ * 이전 버튼 배경 이미지 설정
+ */
+.nav-button--prev {
+  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/24ba75811f808.png');
+}
+
+/** 
+ * 다음 버튼 배경 이미지 설정
+ */
+.nav-button--next {
+  background-image: url('https://cdn.imweb.me/upload/S20200402f6a4097001dd3/dbcd35a466814.png');
+}
+
+/** 
+ * Swiper 슬라이더 기본 스타일
+ * 너비, 하단 패딩, 넘침 visible 설정
+ */
+.swiper {
+  width: 100%; /* 가로 100% */
+  padding-bottom: 30px; /* 하단 공간 확보 */
+  overflow: visible; /* 넘침 visible로 설정하여 그림자 등 보이도록 */
+}
+
+
+.swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+
+/* news-carousel 스타일 */
+.news-carousel {
+  display: block;
+}
+
+/** 
+ * 각 슬라이드 스타일
+ * 배경색, 테두리 반경, 그림자, 오버플로우 및 전환 효과 설정
+ */
+.swiper-slide {
+  background: #ffffff; /* 흰색 배경 */
+  border-radius: 24px; /* 둥근 모서리 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* 연한 그림자 */
+  overflow: hidden; /* 내용 넘침 숨김 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 변환 효과 */
+}
+
+.item-content,
+.news-item a[href="https://www.millie.co.kr/"] {
+  display: block;
+}
+
+/** 
+ * 슬라이드 호버 시 효과
+ * 위로 이동 및 그림자 강화
+ */
+.swiper-slide:hover {
+  transform: translateY(-6px); /* 위로 6px 이동 */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* 그림자 진하게 */
+}
+
+/** 
+ * 뉴스 아이템 링크 스타일
+ * 블록 레벨, 텍스트 장식 제거, 상속된 색상, 높이 100%로 설정
+ */
+.news-item a {
+  display: block; /* 블록 요소로 변경 */
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 부모 색상 상속 */
+  height: 100%; /* 부모 높이 100% 차지 */
+}
+
+/** 
+ * 뉴스 아이템 내용 영역 패딩 및 테두리 반경 설정
+ */
+.item-content {
+  padding: 20px 40px 20px 40px; /* 상 20px, 우 40px, 하 20px, 좌 40px */
+  border-radius: 24px 24px 0 0; /* 상단 둥근 모서리 */
+}
+
+/** 
+ * 뉴스 제목 스타일
+ * 글꼴 크기, 굵기, 여백, 색상 설정
+ */
+.item-content h4 {
+  font-size: 20px; /* 제목 글꼴 크기 */
+  font-weight: 600; /* 제목 굵기 */
+  margin-bottom: 10px; /* 제목과 본문 사이 간격 */
+  color: #111; /* 진한 글자색 */
+}
+
+/** 
+ * 구분선 스타일
+ */
+.item-divider {
+  border: 0;
+  height: 1px;
+  background-color: #e8e5e5;
+  margin: 0;
+  margin-bottom: 15px; /* space below divider */
+}
+
+/** 
+ * 뉴스 본문 스타일
+ * 글꼴 크기, 줄 높이, 색상, 마진 제거 설정
+ */
+.item-content p {
+  font-size: 14px; /* 본문 글꼴 크기 */
+  line-height: 1.5; /* 줄 간격 */
+  color: #899094; /* 연한 회색 텍스트 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+/** 
+ * 뉴스 아이템 하단 영역 스타일
+ * 패딩, 플렉스 박스, 정렬 및 테두리 반경 설정
+ */
+.item-footer {
+  padding: 0px 40px 45px 40px; /* 상 0, 우 40px, 하 45px, 좌 40px */
+  display: flex; /* 플렉스 박스 */
+  justify-content: space-between; /* 좌우 끝 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  border-radius: 0 0 24px 24px; /* 하단 둥근 모서리 */
+}
+
+/* 뉴스카드 내 임시 이미지(추가된 <img>)에 대한 여백 및 라운드 스타일 */
+.item-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/** 
+ * 링크 버튼 스타일 수정
+ * 지정한 이미지로 배경, 네비게이션 버튼처럼 표시
+ */
+.link-button {
+  width: 37px; /* 너비 */
+  height: 37px; /* 높이 */
+  background-size: 100% 100%; /* 버튼 크기에 맞게 이미지 100% 표시 */
+  background-repeat: no-repeat; /* 반복 없음 */
+  background-position: center; /* 중앙 정렬 */
+  border-radius: 100%; /* 원형 제거 */
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle box shadow */
+  background-color: transparent;
+}
+
+/** 
+ * 날짜 텍스트 스타일
+ * 글꼴 크기 및 색상 설정
+ */
+.date {
+  font-size: 12px; /* 작은 글꼴 크기 */
+  color: #899094; /* 연한 회색 텍스트 */
+}
+
+/** 
+ * 반응형 스타일
+ * 화면 너비가 768px 이하일 때 .home-news 패딩 조정
+ */
+@media screen and (max-width: 768px) {
+  .home-news {
+    padding: 20px 20px 10px 20px; /* 상 20px, 우 20px, 하 10px, 좌 20px */
+  }
+}
+
+/* Swiper 버튼 색상 오버라이드 */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #000;
+}
