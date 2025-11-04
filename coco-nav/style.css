@@ -1,3 +1,7 @@
+:root {
+  --nav-component-width: 640px;
+}
+
 *,
 *::before,
 *::after {
@@ -7,10 +11,14 @@
 body {
   margin: 0;
   font-family: "Montserrat", "source-han-sans-korean", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   color: #fdfdfd;
-  min-height: 100vh;
-  padding: 60px 0;
+  padding: 60px 16px;
+}
+
+.top-nav-wrapper {
+  max-width: var(--nav-component-width);
+  margin: 0 auto;
 }
 
 .top-nav {
