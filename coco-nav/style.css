@@ -11,14 +11,23 @@
 body {
   margin: 0;
   font-family: "Montserrat", "source-han-sans-korean", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #ffffff;
+  background-color: transparent;
   color: #fdfdfd;
-  padding: 60px 16px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+html {
+  background-color: transparent;
 }
 
 .top-nav-wrapper {
   max-width: var(--nav-component-width);
   margin: 0 auto;
+  padding: 32px 16px;
 }
 
 .top-nav {
