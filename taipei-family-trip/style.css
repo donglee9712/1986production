@@ -1,9 +1,3 @@
-diff --git a/taipei-family-trip/style.css b/taipei-family-trip/style.css
-new file mode 100644
-index 0000000000000000000000000000000000000000..1b17b88454b9d2d13610046490b6e2a9ac665b2e
---- /dev/null
-+++ b/taipei-family-trip/style.css
-@@ -0,0 +1,406 @@
 +:root {
 +  --bg: #f5f5f7;
 +  --surface: rgba(255, 255, 255, 0.82);
