@@ -168,6 +168,14 @@ main {
   color: var(--muted);
 }
 
+.section__note {
+  max-width: 620px;
+  margin: -24px auto 48px auto;
+  text-align: center;
+  color: rgba(29, 29, 31, 0.62);
+  font-size: 0.92rem;
+}
+
 .grid {
   display: grid;
   gap: clamp(24px, 4vw, 40px);
@@ -229,6 +237,12 @@ main {
 .card--accent {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 245, 247, 0.92));
   border: 1px solid rgba(0, 113, 227, 0.16);
+}
+
+.card--guide {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 247, 0.94));
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
 }
 
 .card--border {
