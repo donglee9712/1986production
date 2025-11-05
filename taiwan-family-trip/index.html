@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대만 3박 4일 패밀리 트립</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --accent-gradient: radial-gradient(circle at top left, #f5f5f7, #e8ecff 40%, #d9e8ff 70%, #f5f5f7 100%);
+      --accent-blue: #0071e3;
+      --accent-gray: #1d1d1f;
+      --accent-muted: #86868b;
+      --border-soft: rgba(0,0,0,0.08);
+      --bg-soft: #f5f5f7;
+      font-size: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'DM Sans', 'SF Pro Display', 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-soft);
+      color: var(--accent-gray);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+    }
+
+    .nav a {
+      color: var(--accent-gray);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--accent-blue);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(0,113,227,0.16), rgba(77,170,255,0.12)), var(--accent-gradient);
+      border-radius: 36px;
+      padding: 80px 60px;
+      text-align: center;
+      box-shadow: 0 40px 100px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4vw, 3.6rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 620px;
+      margin: 0 auto 32px;
+      color: var(--accent-muted);
+    }
+
+    .hero .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      font-weight: 500;
+      margin-bottom: 20px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      padding: 14px 26px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .button-primary {
+      background: var(--accent-blue);
+      color: white;
+      box-shadow: 0 12px 30px rgba(0,113,227,0.24);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(0,113,227,0.32);
+    }
+
+    .button-secondary {
+      background: transparent;
+      border-color: rgba(0,0,0,0.12);
+      color: var(--accent-gray);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(0,113,227,0.4);
+      color: var(--accent-blue);
+    }
+
+    section {
+      margin-top: 100px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-description {
+      color: var(--accent-muted);
+      max-width: 640px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card {
+      background: rgba(255,255,255,0.82);
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
+      backdrop-filter: blur(24px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,113,227,0.08), transparent);
+      pointer-events: none;
+    }
+
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--accent-muted);
+      line-height: 1.7;
+      margin: 0 0 12px;
+    }
+
+    .badge-small {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0,113,227,0.08);
+      color: var(--accent-blue);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .itinerary {
+      display: grid;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .day-card {
+      padding: 36px;
+      border-radius: 32px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.92), rgba(245,245,247,0.95));
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.05);
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 18px;
+      gap: 16px;
+    }
+
+    .day-title {
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .day-meta {
+      color: var(--accent-muted);
+      font-size: 0.95rem;
+    }
+
+    .day-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .day-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: var(--accent-gray);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      margin-top: 10px;
+      flex-shrink: 0;
+    }
+
+    .highlight {
+      background: linear-gradient(140deg, rgba(0,113,227,0.1), rgba(77,170,255,0.08));
+      border-radius: 30px;
+      padding: 40px;
+      margin-top: 48px;
+      box-shadow: 0 30px 70px rgba(15,23,42,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      top: -80px;
+      right: -60px;
+      filter: blur(0px);
+    }
+
+    footer {
+      margin-top: 120px;
+      padding: 40px 24px 60px;
+      text-align: center;
+      color: var(--accent-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        position: static;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      main {
+        padding: 60px 20px 100px;
+      }
+
+      .hero {
+        padding: 60px 24px;
+      }
+
+      .day-card {
+        padding: 28px;
+      }
+
+      .highlight {
+        padding: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">Family Journey · Taiwan</div>
+      <div class="nav-links">
+        <a href="#overview">여행 하이라이트</a>
+        <a href="#itinerary">3박 4일 일정</a>
+        <a href="#onsen">온천 추천</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="badge">4인 가족 맞춤 · 3박 4일</div>
+      <h1>대만 타이베이 & 온천 감성 여행</h1>
+      <p>
+        애플 감성의 미니멀 디자인으로 설계한 3박 4일 패밀리 여정. 타이베이 도심의 활기와 근교의 자연, 그리고 온천에서의 완벽한 힐링까지 — 아이와 함께하는 가족에게 꼭 맞는 코스를 만나보세요.
+      </p>
+      <div class="cta-group">
+        <a class="button-primary" href="#itinerary">일정 살펴보기</a>
+        <a class="button-secondary" href="#onsen">온천 정보 바로가기</a>
+      </div>
+    </section>
+
+    <section id="overview">
+      <h2 class="section-title">여행 하이라이트</h2>
+      <p class="section-description">
+        타이베이 중심의 3박 스테이를 기반으로, 접근성 좋은 근교 여행지와 아이들이 좋아할 체험을 조합했습니다. 마지막 날에는 천천히 이동해 온천에서 휴식을 즐길 수 있도록 구성했습니다.
+      </p>
+      <div class="grid three" style="margin-top: 40px;">
+        <div class="card">
+          <span class="badge-small">Day &amp; Night Taipei</span>
+          <h3>타이베이 감성 산책</h3>
+          <p>용캉제, 다안공원, 시먼딩 등 온 가족이 함께 즐길 수 있는 스폿을 코스로 엮어 도시의 활기를 느껴보세요.</p>
+        </div>
+        <div class="card">
+          <span class="badge-small">Nature Escape</span>
+          <h3>근교 자연 체험</h3>
+          <p>지우펀, 스펀, 양밍산 등 대중교통으로도 쉽게 접근 가능한 근교 여행으로 대만의 자연과 문화를 경험합니다.</p>
+        </div>
+        <div class="card">
+          <span class="badge-small">Family Wellness</span>
+          <h3>프라이빗 온천 힐링</h3>
+          <p>아이들이 즐길 수 있는 패밀리룸과 노천탕이 있는 온천 호텔에서 여행 마지막을 편안하게 마무리합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="itinerary">
+      <h2 class="section-title">3박 4일 일정</h2>
+      <p class="section-description">타이베이에 3박을 머물며 근거리 이동만으로 즐길 수 있는 일정을 구성했습니다. 일정 사이사이에 아이들의 컨디션을 고려한 여유 시간과 맛집을 함께 소개합니다.</p>
+      <div class="itinerary">
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-title">Day 1 · 타이베이 도착 &amp; 도심 적응</span>
+            <span class="day-meta">숙소: 타이베이 시내 패밀리 호텔</span>
+          </div>
+          <ul class="day-list">
+            <li><span class="dot"></span><span>오전: 타오위안 공항 도착 후 공항 MRT로 이동, 체크인 &amp; 휴식</span></li>
+            <li><span class="dot"></span><span>점심: 융캉제 딘타이펑에서 샤오롱바오로 가볍게 식사</span></li>
+            <li><span class="dot"></span><span>오후: 다안공원 산책 &amp; 아이스크림, 애플스토어 타이베이 방문</span></li>
+            <li><span class="dot"></span><span>저녁: 타이베이 101 전망대 혹은 신이상권 쇼핑몰 산책</span></li>
+          </ul>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-title">Day 2 · 지우펀 &amp; 스펀 감성 트립</span>
+            <span class="day-meta">숙소: 타이베이 시내 패밀리 호텔</span>
+          </div>
+          <ul class="day-list">
+            <li><span class="dot"></span><span>오전: 버스 또는 전용차로 지우펀 이동, 골목 카페 &amp; 전망 감상</span></li>
+            <li><span class="dot"></span><span>점심: 지우펀 찹쌀떡, 땅콩 아이스크림 등 길거리 간식</span></li>
+            <li><span class="dot"></span><span>오후: 스펀에서 천등 날리기 체험, 폭포 트레킹</span></li>
+            <li><span class="dot"></span><span>저녁: 타이베이 귀환 후 닝샤 야시장 투어</span></li>
+          </ul>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-title">Day 3 · 타이베이 로컬 &amp; 박물관 데이</span>
+            <span class="day-meta">숙소: 타이베이 시내 패밀리 호텔</span>
+          </div>
+          <ul class="day-list">
+            <li><span class="dot"></span><span>오전: 국립고궁박물원 패밀리 가이드 투어, 아이들을 위한 멀티미디어 체험</span></li>
+            <li><span class="dot"></span><span>점심: 중정기념당 근처 우육면 맛집</span></li>
+            <li><span class="dot"></span><span>오후: 화산1914 문화창의공원에서 공방 체험 &amp; 카페 타임</span></li>
+            <li><span class="dot"></span><span>저녁: 시먼딩 쇼핑 또는 라오허제 야시장 탐방</span></li>
+          </ul>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header">
+            <span class="day-title">Day 4 · 베이터우 온천 &amp; 귀국</span>
+            <span class="day-meta">숙소: 베이터우 온천 리조트</span>
+          </div>
+          <ul class="day-list">
+            <li><span class="dot"></span><span>오전: 타이베이 MRT로 베이터우 이동, 온천 호텔 얼리 체크인</span></li>
+            <li><span class="dot"></span><span>점심: 호텔 내 패밀리 레스토랑 또는 베이터우 전통시장</span></li>
+            <li><span class="dot"></span><span>오후: 프라이빗 패밀리 온천 &amp; 온천박물관, 지열곡 산책</span></li>
+            <li><span class="dot"></span><span>저녁: 공항 이동 전 가벼운 석식 후 귀국</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="onsen">
+      <div class="highlight">
+        <span class="badge-small" style="background: rgba(255,255,255,0.6); color: var(--accent-gray);">Hot Spring Retreat</span>
+        <h2 class="section-title">추천 온천 · 그랜드 뷰 리조트 베이터우</h2>
+        <p class="section-description" style="max-width: 700px;">
+          타이베이 중심부에서 MRT로 40분 거리에 위치한 5성급 온천 리조트. 넓은 패밀리룸과 실내/실외 온천, 아이들을 위한 키즈풀을 갖추고 있으며, 객실 내 프라이빗 탕이 준비되어 있어 가족 모두가 편안하게 온천을 즐길 수 있습니다. 체크아웃 전까지 호텔 라운지에서 여유롭게 애프터눈 티를 즐기며 여행의 피로를 풀어보세요.
+        </p>
+        <div class="grid two" style="margin-top: 32px;">
+          <div class="card" style="background: rgba(255,255,255,0.9);">
+            <h3>패밀리 포인트</h3>
+            <p>· 객실 내 프라이빗 온천탕과 넉넉한 패밀리 베드</p>
+            <p>· 유아용 어메니티 &amp; 키즈 메뉴 제공</p>
+            <p>· MRT 베이터우역 ↔ 호텔 셔틀 운행</p>
+          </div>
+          <div class="card" style="background: rgba(255,255,255,0.9);">
+            <h3>주변 추천</h3>
+            <p>· 베이터우 온천 박물관 &amp; 지열곡</p>
+            <p>· 밀크티로 유명한 스프링 뮤직 카페</p>
+            <p>· 단수이 강변 산책 후 석양 감상</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2024 Family Journey. Designed with an Apple-inspired aesthetic for unforgettable Taiwan memories.
+  </footer>
+</body>
+</html>
