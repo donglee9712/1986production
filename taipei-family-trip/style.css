@@ -1,7 +1,6 @@
 :root {
   --bg-light: #f5f7fb;
   --bg-accent: #f9f3ff;
-  --bg-footer: #141827;
   --text-dark: #1a1f2b;
   --text-muted: #5b6170;
   --primary: #ff7f50;
@@ -42,7 +41,7 @@ a:focus {
   display: flex;
   align-items: center;
   color: #ffffff;
-  background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80')
+  background: url('https://images.unsplash.com/photo-1541845157-ffaf69ede9cd?auto=format&fit=crop&w=1600&q=80')
       center/cover no-repeat;
 }
 
@@ -236,36 +235,6 @@ a:focus {
 
 .timeline__content li + li {
   margin-top: 12px;
-}
-
-.footer {
-  background: var(--bg-footer);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 32px 0;
-}
-
-.footer__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-  text-align: center;
-}
-
-.footer__nav {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.footer__nav a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.9rem;
-}
-
-.footer__nav a:hover {
-  color: #fff;
 }
 
 @media (max-width: 768px) {
