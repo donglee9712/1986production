@@ -1,27 +1,208 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coco Navigation</title>
-  <link rel="stylesheet" href="https://use.typekit.net/yqm6tla.css">
-  <link rel="stylesheet" href="https://donglee9712.github.io/1986production/coco-nav/style.css">
-</head>
-<body>
+<!-- Coco Navigation embeddable header snippet -->
+<div data-coco-nav>
   <header class="top-nav">
-    <a class="top-nav__logo" href="#home" aria-label="1986 homepage">
+    <a class="top-nav__logo" href="https://www.1986.co.kr/" aria-label="1986 homepage">
       <img src="https://cdn.imweb.me/upload/S20200402f6a4097001dd3/e5128b817c05c.png" alt="1986 logo">
     </a>
     <nav class="nav-pill" aria-label="Primary">
       <span class="nav-pill__indicator" aria-hidden="true"></span>
       <ul class="nav-pill__list">
-        <li><a class="nav-pill__link is-active" href="#about">ABOUT</a></li>
-        <li><a class="nav-pill__link" href="#original-project">ORIGINAL PROJECT</a></li>
-        <li><a class="nav-pill__link" href="#works">WORKS</a></li>
+        <li><a class="nav-pill__link is-active" href="https://www.1986.co.kr/About">ABOUT</a></li>
+        <li><a class="nav-pill__link" href="https://www.1986.co.kr/Original">ORIGINAL PROJECT</a></li>
+        <li><a class="nav-pill__link" href="https://www.1986.co.kr/work">WORKS</a></li>
       </ul>
     </nav>
   </header>
 
-  <script src="https://donglee9712.github.io/1986production/coco-nav/script.js"></script>
-</body>
-</html>
+  <style>
+    @import url("https://use.typekit.net/yqm6tla.css");
+
+    [data-coco-nav] {
+      margin: 0px;
+      padding: 0;
+      padding-top: 60px;
+      padding-bottom: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: transparent;
+      color: #fdfdfd;
+      font-family: "Montserrat", "source-han-sans-korean", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      width: 100%;
+    }
+
+    [data-coco-nav],
+    [data-coco-nav] *::before,
+    [data-coco-nav] *::after,
+    [data-coco-nav] * {
+      box-sizing: border-box;
+    }
+
+    [data-coco-nav] .top-nav {
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    [data-coco-nav] .top-nav__logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      text-decoration: none;
+    }
+
+    [data-coco-nav] .top-nav__logo img {
+      display: block;
+      height: 43px;
+      width: auto;
+    }
+
+    [data-coco-nav] .nav-pill {
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 4.75px;
+      position: relative;
+      background: linear-gradient(165deg, #3d3d3d, #000000);
+      padding: 13px 4.75px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 14px 28px rgba(10, 0, 10, 0.2);
+    }
+
+    [data-coco-nav] .nav-pill__indicator {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: calc(100% - 9.5px);
+      width: var(--indicator-width, 0);
+      transform: translate(var(--indicator-x, 20px), -50%);
+      border-radius: 999px;
+      background-color: #ffffff;
+      box-shadow: 0 12px 24px rgba(26, 26, 28, 0.18);
+      opacity: var(--indicator-opacity, 0);
+      transition: width 0.35s ease, transform 0.35s ease, opacity 0.2s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-coco-nav] .nav-pill__list {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+    }
+
+    [data-coco-nav] .nav-pill__link {
+      position: relative;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: none;
+      box-shadow: none;
+      transition: color 0.25s ease;
+      padding: 8px 18px;
+      border-radius: 999px;
+      z-index: 1;
+    }
+
+    [data-coco-nav] .nav-pill__link:hover {
+      color: #ffd55b;
+    }
+
+    [data-coco-nav] .nav-pill__link.is-active {
+      color: #1f1f1f;
+    }
+
+    @media (max-width: 680px) {
+      [data-coco-nav] {
+        padding: 32px 12px;
+      }
+
+      [data-coco-nav] .top-nav {
+        flex-direction: column;
+        gap: 16px;
+        padding-top: 48px;
+      }
+
+      [data-coco-nav] .top-nav__logo {
+        position: static;
+        transform: none;
+        margin-bottom: 8px;
+      }
+
+      [data-coco-nav] .nav-pill {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+      }
+
+      [data-coco-nav] .nav-pill__list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const container = document.currentScript.closest('[data-coco-nav]');
+      if (!container) return;
+
+      const navPill = container.querySelector('.nav-pill');
+      const navLinks = container.querySelectorAll('.nav-pill__link');
+      const indicator = container.querySelector('.nav-pill__indicator');
+
+      const moveIndicator = (target) => {
+        if (!navPill || !indicator || !target) return;
+
+        const targetRect = target.getBoundingClientRect();
+        const parentRect = navPill.getBoundingClientRect();
+        const offsetX = targetRect.left - parentRect.left;
+
+        indicator.style.setProperty('--indicator-width', `${targetRect.width}px`);
+        indicator.style.setProperty('--indicator-x', `${offsetX}px`);
+        indicator.style.setProperty('--indicator-opacity', '1');
+      };
+
+      const setActiveLink = (link) => {
+        navLinks.forEach((other) => other.classList.remove('is-active'));
+        link.classList.add('is-active');
+        moveIndicator(link);
+      };
+
+      const matchActiveLink = () => {
+        const currentPath = window.location.pathname.toLowerCase();
+        const matched =
+          Array.from(navLinks).find((link) =>
+            currentPath.startsWith(new URL(link.href).pathname.toLowerCase())
+          ) || container.querySelector('.nav-pill__link.is-active') || navLinks[0];
+
+        setActiveLink(matched);
+      };
+
+      if (navLinks.length) {
+        matchActiveLink();
+
+        window.addEventListener('resize', () => {
+          const currentActive = container.querySelector('.nav-pill__link.is-active');
+          if (currentActive) {
+            moveIndicator(currentActive);
+          }
+        });
+      }
+    })();
+  </script>
+</div>
