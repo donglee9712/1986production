@@ -8,8 +8,8 @@
       <span class="nav-pill__indicator" aria-hidden="true"></span>
       <ul class="nav-pill__list">
         <li><a class="nav-pill__link is-active" href="https://www.1986.co.kr/About">ABOUT</a></li>
-        <li><a class="nav-pill__link" href="https://www.1986.co.kr/Original">ORIGINAL PROJECT</a></li>
-        <li><a class="nav-pill__link" href="https://www.1986.co.kr/work">WORKS</a></li>
+        <li><a class="nav-pill__link" href="https://www.1986.co.kr/ORIGINALPROJECT">ORIGINAL PROJECT</a></li>
+        <li><a class="nav-pill__link" href="https://www.1986.co.kr/WORK">WORKS</a></li>
       </ul>
     </nav>
   </header>
@@ -183,18 +183,35 @@
         moveIndicator(link);
       };
 
-      const matchActiveLink = () => {
-        const currentPath = window.location.pathname.toLowerCase();
+      const normalizePath = (path) => {
+        if (!path) return '/';
+        const lower = path.toLowerCase();
+        return lower.endsWith('/') && lower.length > 1
+          ? lower.replace(/\/+$/, '')
+          : lower;
+      };
+
+      const matchActiveLinkToLocation = () => {
+        const currentPath = normalizePath(window.location.pathname || '/');
         const matched =
-          Array.from(navLinks).find((link) =>
-            currentPath.startsWith(new URL(link.href).pathname.toLowerCase())
-          ) || container.querySelector('.nav-pill__link.is-active') || navLinks[0];
+          Array.from(navLinks).find((link) => {
+            try {
+              const linkPath = normalizePath(new URL(link.getAttribute('href'), window.location.origin).pathname);
+              return currentPath === linkPath;
+            } catch (_) {
+              return false;
+            }
+          }) || container.querySelector('.nav-pill__link.is-active') || navLinks[0];
 
         setActiveLink(matched);
       };
 
       if (navLinks.length) {
-        matchActiveLink();
+        navLinks.forEach((link) => {
+          link.addEventListener('click', () => setActiveLink(link));
+        });
+
+        matchActiveLinkToLocation();
 
         window.addEventListener('resize', () => {
           const currentActive = container.querySelector('.nav-pill__link.is-active');
